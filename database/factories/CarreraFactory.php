@@ -16,8 +16,15 @@ class CarreraFactory extends Factory
      */
     public function definition(): array
     {
+        $idFacultad = $this->faker->numberBetween(1,3);
+
         return [
-            //
+
+            'nombre'=>$this->faker->randomElement(['Sistemas', ' Redes', 'Ambiental', 'Comercial','Contabilidad']),
+            'id_facultad' => $idFacultad,
+            'created_at'=>now(),
+            'updated_at'=>now(),
+
         ];
     }
 }

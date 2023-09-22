@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nombre', 45);
             $table->string('apellido_p',45);
             $table->string('apellido_m',45);
-            $table->string('telefono',15);
+            $table->string('telefono',25);
 
             // foreing key columna
             $table->unsignedBigInteger('id_carrera');

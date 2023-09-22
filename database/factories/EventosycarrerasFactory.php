@@ -2,12 +2,14 @@
 
 namespace Database\Factories;
 
+use App\Models\carrera;
+use App\Models\evento;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\docente>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\evento>
  */
-class DocenteFactory extends Factory
+class EventosycarrerasFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,13 +18,12 @@ class DocenteFactory extends Factory
      */
     public function definition(): array
     {
-        $idCarrera = $this->faker->numberBetween(1,8);
+        $idCarrera = carrera::pluck('id_carrera')->random();
+        $idEvento = evento::pluck('id_evento')->random();
+
         return [
-            'nombre'=>$this->faker->firstName(),
-            'apellido_p'=>$this->faker->lastName(),
-            'apellido_m'=>$this->faker->lastName(),
-            'telefono'=>$this->faker->phoneNumber(),
             'id_carrera'=>$idCarrera,
+            'id_evento'=>$idEvento,
             'created_at'=>now(),
             'updated_at'=>now(),
         ];
