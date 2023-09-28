@@ -9,6 +9,7 @@ class facultade extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_facultad'; // para que tomo en cuenta el id_facultad
     // tabla fuerte
 
     // facultade - carrera
