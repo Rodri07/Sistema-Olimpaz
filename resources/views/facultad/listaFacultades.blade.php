@@ -3,7 +3,7 @@
 @section('titulo', 'lista de facultades')
 
 @section('contenido')
-    <div class="card custom-card">
+<div class="card custom-card">
         <h5 class="card-header">FACULTADES</h5>
         <div class="card-body">
             <h5 class="card-title text-center">Lista de Facultades</h5>
