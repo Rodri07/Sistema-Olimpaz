@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -24,21 +24,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;
-use App\Http\Controllers\FacultadeController;
 
-
-// CRUD FACULTADES
-// 1 mostrar el contenido
-Route::get('/listaFacultades', [FacultadeController::class, 'listaFacultades'])->name('facultad.listaFacultades'); // lista las facultades
-//agregar una nueva fila
-Route::get('/punteroCrearFacultad', [FacultadeController::class, 'punteroCrearFacultad'])->name('facultad.punteroCrearFacultad'); // nos direcciona a una nueva vista para agregar
-Route::post('/agregarFacultad', [FacultadeController::class, 'agregarFacultad'])->name('facultad.agregarFacultad'); // agrega los nuevos datos a bd
-//editar una fila
-Route::get('/punteroEditarFacultad/{id_facultad}', [FacultadeController::class, 'punteroEditarFacultad'])->name('facultad.punteroEditarFacultad');
-Route::put('/editarFacultad/{id_facultad}', [FacultadeController::class, 'editarFacultad'])->name('facultad.editarFacultad');
-//Eliminar una Fila
-Route::get('/punteroEliminarFacultad/{id_facultad}',[FacultadeController::class, 'punteroEliminarFacultad'])->name('facultad.punteroEliminarFacultad');
-Route::delete('/eliminarFacultad/{id_facultad}', [FacultadeController::class, 'eliminarFacultad'])->name('facultad.eliminarFacultad');
 
 
  // AGRO
@@ -52,6 +38,9 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::get('/change-password', [ChangePassword::class, 'show'])->middleware('guest')->name('change-password');
 	Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
+    Route::post('/dashboard', [HomeController::class, 'agregarEstudiante'])->name('home')->middleware('auth'); // ruta de agregar estudiante
+    // ruta para listar tu listablade.php en tu controlador HomeController
+    Route::get('/lista', [HomeController::class, 'lista'])->name('lista')->middleware('auth');
 
     Route::group(['middleware' => 'auth'], function () {
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
