@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\evento;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,12 @@ class ActividadeFactory extends Factory
      */
     public function definition(): array
     {
+        $idEvento = evento::pluck('id_evento')->random();
         return [
-            //
+            'nombre'=>$this->faker->firstName(),
+            'id_evento'=>$idEvento,
+            'created_at'=>now(),
+            'updated_at'=>now(),
         ];
     }
 }

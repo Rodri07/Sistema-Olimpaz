@@ -9,6 +9,7 @@ class carrera extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_carrera'; // toma como prioridad "id_carrera"
     // tabla debil
     // carrera - facultade
     public function facultade()
@@ -39,4 +40,10 @@ class carrera extends Model
         return$this->belongsToMany(evento::class);
     }
 
+
+    // tabla debil
+    public function equipos()
+    {
+        return $this->hasMany(Equipo::class);
+    }
 }

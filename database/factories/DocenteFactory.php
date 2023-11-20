@@ -16,7 +16,7 @@ class DocenteFactory extends Factory
      */
     public function definition(): array
     {
-        $idCarrera = $this->faker->numberBetween(1,8);
+        $idCarrera = $this->faker->numberBetween(1,10);
         return [
             'nombre'=>$this->faker->firstName(),
             'apellido_p'=>$this->faker->lastName(),

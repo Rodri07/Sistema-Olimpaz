@@ -9,7 +9,7 @@ class facultade extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id_facultad'; // para que tomo en cuenta el id_facultad
+    protected $primaryKey = 'id_facultad'; // toma como prioridad "id_facultad"
     // tabla fuerte
 
     // facultade - carrera
@@ -17,5 +17,11 @@ class facultade extends Model
     {
         // 1 - N
         return $this->hasMany(carrera::class);
+    }
+
+    // tabla debil
+    public function equipos()
+    {
+        return $this->hasMany(Equipo::class, 'id_facultad');
     }
 }

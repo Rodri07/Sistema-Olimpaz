@@ -16,7 +16,7 @@ class CarreraFactory extends Factory
      */
     public function definition(): array
     {
-        $idFacultad = $this->faker->numberBetween(1,3);
+        $idFacultad = $this->faker->numberBetween(1,5);
 
         return [
 

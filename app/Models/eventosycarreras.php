@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class eventosycarreras extends Model
 {
     use HasFactory;
+
 }

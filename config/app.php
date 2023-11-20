@@ -168,6 +168,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // Agremos la configuracion de spatie
+        Spatie\Permission\PermissionServiceProvider::class,
     ])->toArray(),
 
     /*

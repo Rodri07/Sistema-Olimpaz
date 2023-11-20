@@ -11,18 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // tabla pivot
-        Schema::create('eventosycarreras', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('equipos', function (Blueprint $table) {
+            $table->bigIncrements('id_equipo');
+            $table->string('nombre');
 
-            // foreing key columnas
+              // foreing key columna
+            $table->unsignedBigInteger('id_facultad');
             $table->unsignedBigInteger('id_carrera');
             $table->unsignedBigInteger('id_evento');
+            $table->unsignedBigInteger('id_actividad');
+            $table->unsignedBigInteger('id_puntaje');
 
-            // foreing key relacion
+              // foreing key relacion
+            $table->foreign('id_facultad')->references('id_facultad')->on('facultades')->onDelete('cascade');
             $table->foreign('id_carrera')->references('id_carrera')->on('carreras')->onDelete('cascade');
             $table->foreign('id_evento')->references('id_evento')->on('eventos')->onDelete('cascade');
-
+            $table->foreign('id_actividad')->references('id_actividad')->on('actividades')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -32,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('eventosycarreras');
+        Schema::dropIfExists('equipos');
     }
 };

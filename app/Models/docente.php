@@ -9,6 +9,8 @@ class docente extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_docente'; // toma como prioridad "id_docente"
+
     // tabla debil
     // docentes - carreras
     public function carreras(){

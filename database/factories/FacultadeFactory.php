@@ -17,7 +17,7 @@ class FacultadeFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' =>$this->faker->randomElement(['FACEA', 'Ingieneria']),
+            'nombre' =>$this->faker->randomElement(['FACEA', 'Ingieneria','Salud','Educacion','Ciencias de la Salud']),
             'created_at'=>now(),
             'updated_at'=>now(),
         ];

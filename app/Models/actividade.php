@@ -9,11 +9,13 @@ class actividade extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_actividad'; // toma como prioridad "id_actividad"
+    protected $fillable = ['nombre'];
     // tabla debil
     // actividades - eventos
     public function eventos()
-    {   // N - 1
-        return $this->belongsTo(evento::class);
+    {
+        return $this->belongsToMany(evento::class, 'actividad_evento','id_actividad','id_evento')->withTimestamps();
     }
 
     // tabla fuerte
@@ -21,5 +23,10 @@ class actividade extends Model
     public function puntajes()
     {   // 1 - 1
         return $this->hasOne(puntaje::class);
+    }
+
+    // tabla debil
+    public function equipos() {
+        return $this->hasMany(equipo::class);
     }
 }

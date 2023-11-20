@@ -9,6 +9,7 @@ class evento extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_evento'; // toma como prioridad "id_evento"
 
     //tablas fuerte
     //eventos - carrera
@@ -19,8 +20,14 @@ class evento extends Model
 
     //tabla fuerte
     // eventos - actividades
-    public function actividades(){
-        // 1 - N
-        return $this->hasMany(actividade::class);
+    public function actividades()
+    {
+        return $this->belongsToMany(actividade::class, 'actividad_evento', 'id_evento', 'id_actividad')->withTimestamps();
+    }
+
+    // tabla debil
+    public function equipos()
+    {
+        return $this->hasMany(Equipo::class);
     }
 }
