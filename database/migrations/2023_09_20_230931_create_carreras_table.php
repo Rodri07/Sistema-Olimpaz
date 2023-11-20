@@ -20,10 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_facultad');
 
             //foreing key columna relacion
-            $table->foreign('id_facultad')
-                    ->references('id_facultad')
-                    ->on('facultades')
-                    ->onDelete('cascade');
+            $table->foreign('id_facultad')->references('id_facultad')->on('facultades')->onDelete('cascade');
 
             $table->timestamps();
         });

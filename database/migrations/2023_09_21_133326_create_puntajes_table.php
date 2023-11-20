@@ -13,11 +13,8 @@ return new class extends Migration
     {
         Schema::create('puntajes', function (Blueprint $table) {
             $table->bigIncrements('id_puntaje');
-            $table->integer('primero');
-            $table->integer('segundo');
-            $table->integer('tercero');
-            $table->integer('participacion');
-            $table->integer('puntaje_extra');
+            $table->string('lugares');
+            $table->integer('puntajes');
 
             // foreing key columna
             $table->unsignedBigInteger('id_actividad'); // definimos columna la columna foranea que acabamos de crear

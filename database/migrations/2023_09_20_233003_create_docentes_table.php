@@ -22,10 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_carrera');
 
             // foreing key relacion
-            $table->foreign('id_carrera')
-            ->references('id_carrera')
-            ->on('carreras')
-            ->onDelete('cascade');
+            $table->foreign('id_carrera')->references('id_carrera')->on('carreras')->onDelete('cascade');
 
             $table->timestamps();
         });

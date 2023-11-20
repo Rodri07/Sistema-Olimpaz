@@ -20,9 +20,12 @@ class RegisterController extends Controller
             'password' => 'required|min:5|max:255',
             'terms' => 'required'
         ]);
+
         $user = User::create($attributes);
+        // line aumentada
+        $user->assignRole('Admin');
         auth()->login($user);
 
-        return redirect('/dashboard');
+        return redirect('/profile');
     }
 }

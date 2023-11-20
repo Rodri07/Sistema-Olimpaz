@@ -137,17 +137,18 @@
                                     <label for="nombre" class="form-label">Apellido Materno </label>
                                     <input type="text" name="apellido_m" class="form-control" placeholder="Apellido">
                                 </div>
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label for="nombre" class="form-label">ID de carrera </label>
                                     <input type="number" name="id_carrera" class="form-control" placeholder="Numero de Carrera">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="carrera" class="form-label">Seleccione su carrera</label>
-                                    <select class="form-select form-select-sm" aria-label="Small select example">
-                                        <option selected>Seleccione su carrera</option>
-                                        <option value="1">Sistemas</option>
-                                        <option value="2">Ambiental</option>
-                                        <option value="3">Telecomunicaciones</option>
+                                </div> --}}
+
+                                {{-- select --}}
+                                <div class="form-group">
+                                    <label for="carrera">Seleccione su carrera</label>
+                                    <select id="carreraid" name="carreraid" class="form-control" required>
+                                        @foreach ($carrera as $item)
+                                        <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
