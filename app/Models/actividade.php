@@ -19,10 +19,9 @@ class actividade extends Model
     }
 
     // tabla fuerte
-    // actividades - puntajes
     public function puntajes()
-    {   // 1 - 1
-        return $this->hasOne(puntaje::class);
+    {
+        return $this->hasMany(puntaje::class, 'id_actividad', 'id_actividad');
     }
 
     // tabla debil

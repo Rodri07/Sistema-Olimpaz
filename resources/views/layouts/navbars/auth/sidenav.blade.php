@@ -14,8 +14,8 @@
             {{-- perfil --}}
             @can('profile-static')
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteName() == 'profile-static' ? 'active' : '' }}"
-                        href="{{ route('profile-static') }}">
+                    <a class="nav-link {{ Route::currentRouteName() == 'profile' ? 'active' : '' }}"
+                        href="{{ route('profile') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-single-02 text-primary text-sm opacity-10"></i>
@@ -27,7 +27,7 @@
             {{-- usuarios --}}
             @can('usuario.punteroListaUsuario')
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteName() == 'Usuario' ? 'active' : '' }}"
+                    <a class="nav-link {{ Route::currentRouteName() == 'usuario.punteroListaUsuario' ? 'active' : '' }}"
                         href="{{ route('usuario.punteroListaUsuario') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -90,6 +90,18 @@
                         <i class="fa-solid fa-chart-line text-primary text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Actividades</span>
+                </a>
+            </li>
+
+            {{-- puntajes --}}
+            <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() == 'puntajes.indexPuntaje' ? 'active' : '' }}"
+                    href="{{ route('puntajes.indexPuntaje') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-star-half-stroke text-primary text-sm opacity-50"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Puntajes</span>
                 </a>
             </li>
 
@@ -162,6 +174,7 @@
             /* Agrega sombra a la imagen */
         }
     </style>
+
 
 
 </aside>

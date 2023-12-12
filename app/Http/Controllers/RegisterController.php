@@ -23,7 +23,7 @@ class RegisterController extends Controller
 
         $user = User::create($attributes);
         // line aumentada
-        $user->assignRole('Admin');
+        $user->assignRole('estudiante');
         auth()->login($user);
 
         return redirect('/profile');
