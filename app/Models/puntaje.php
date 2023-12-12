@@ -15,7 +15,7 @@ class puntaje extends Model
     // puntaje - actividades
     public function actividades()
     {   // 1 - 1
-        return $this->belongsTo(actividade::class);
+        return $this->belongsTo(actividade::class, 'id_actividad', 'id_actividad');
     }
 
     // tabla fuerte

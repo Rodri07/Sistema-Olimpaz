@@ -14,6 +14,7 @@ use App\Http\Controllers\FacultadeController;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\ActividadeController;
 use App\Http\Controllers\EquipoController;
+use App\Http\Controllers\PuntajeController;
 use App\Http\Controllers\RoleController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -74,6 +75,31 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
     Route::put('/ActualizarActividades/{id_actividad}', [ActividadeController::class, 'actualizarActividad'])->name('actividades.actualizarActividad')->middleware('auth');
     Route::get('/eliminar-Actividad/{id_actividad}',[ActividadeController::class, 'punteroEliminarActividad'])->name('actividades.punteroEliminarActividad')->middleware('auth'); // Eliminar
     Route::delete('/delete-Actividad/{id_actividad}', [ActividadeController::class, 'eliminarActividad'])->name('actividades.eliminarActividad')->middleware('auth');
+
+
+    // CRUD DE ACTIVIDADES
+    Route::get('/Puntaje-Index', [PuntajeController::class, 'indexPuntaje'])->name('puntajes.indexPuntaje');
+    Route::post('/Puntaje/Registro-Puntaje', [PuntajeController::class, 'registrarPuntaje'])->name('puntajes.registrarPuntaje')->middleware('auth'); // Agregar Actividad y Puntajes
+
+
+    Route::get('/Puntajes/agregar-puntaje/{id_actividad}', [PuntajeController::class, 'punteroRegistroPuntaje'])->name('puntajes.agregar-puntaje')->middleware('auth');// Registar estudiantes al equipo
+    Route::post('/Puntajes/agregar/{id_actividad}', [PuntajeController::class, 'RegistrarP'])->name('puntajes.almacenar-puntaje')->middleware('auth');
+
+
+    Route::get('/Puntajes/Detalles/{id_actividad}', [PuntajeController::class, 'detallesPuntaje'])->name('puntajes.Detalles')->middleware('auth');//Ver Detalles del equipo
+
+
+
+    Route::get('/eliminar-Puntaje/{id_actividad}', [PuntajeController::class, 'punteroEiminarPuntaje'])->name('puntajes.punteroEiminarPuntaje')->middleware('auth');// Eliminar Equipo
+    Route::delete('delete-Puntaje/{id_actividad}',  [PuntajeController::class, 'eliminarPutaje'])->name('puntajes.eliminarPutaje')->middleware('auth');
+
+
+
+
+
+
+
+
 
     //CRUD EQUIPOS
     Route::get('/index-equipos', [EquipoController::class, 'punteroIndexEquipos'])->name('equipos.punteroIndexEquipos')->middleware('auth');// puntero

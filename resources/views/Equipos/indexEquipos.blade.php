@@ -76,38 +76,6 @@
                                             <span class="fa-solid fa-user-pen"></span> Registrar
                                         </button>
 
-                                        <!-- Modal Registro de Estudiante -->
-                                        {{-- <div class="modal fade" id="agregarEstudianteModal{{ $equipo->id_equipo }}"
-                                            tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Seleccionar
-                                                            Estudiante</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <h1> Equipo {{ $equipo->nombre }}</h1>
-                                                        <form method="post" action="{{ route('equipos.almacenar-estudiante', $equipo->id_equipo) }}">
-                                                            @csrf
-                                                            <label for="estudiante">Seleccionar Estudiante:</label>
-                                                            <select name="estudiante" id="estudiante" required>
-                                                                @foreach ($estudiantes as $estudiante)
-                                                                    <option value="{{ $estudiante->id_estudiante }}">
-                                                                        {{ $estudiante->nombre }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                            <button type="submit" class="btn btn-primary"> Registrar Estudiante</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
-
                                         <div class="modal fade" id="agregarEstudianteModal{{ $equipo->id_equipo }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
